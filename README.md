@@ -28,7 +28,7 @@ This allows attackers to run PowerShell commands and access system resources
 
 ## Recreating the POC
 
-#### Prerequisites :-
+### Prerequisites :-
 
 - Download and install **Microsoft Office 2016 and 2019** on your VM.
 - Open Excel go to :
@@ -42,7 +42,7 @@ This allows attackers to run PowerShell commands and access system resources
 
 ![alt text](Assets/flow.jpg)
 
-#### Set up Python Server
+### Set up Python Server
 
 We have Used Kali Linux to setup our Python Server
 This Python Server is a pathway to Pipe our Exploit to Victim's Machine
@@ -64,6 +64,7 @@ LINK :- [Github](https://github.com/martinsohn/PowerShell-reverse-shell/blob/mai
 - Save this Powershell script in a `.ps` file 
 - Save it in such a folder where it can be accessed via the created python server
 - Copy its path you will need it to input in our Vbscript
+
 ### Macros Vbscript
 
 This is our Exploit which we have written in our **Macros Vbscript**
@@ -135,7 +136,7 @@ Private Function DownloadFile(fileUrl As String, filePath As String) As Boolean
     Set xmlHttp = Nothing
 End Function
 ```
-####  Workflow of our Vbscript Exploit :-
+###  Workflow of our Vbscript Exploit :-
 
 -  On execution it downloads the Powershell backdoor exploit from the remote server.
 -  Then it saves the downloaded file in a temporary folder `.ps` file in `TEMP` folder 
@@ -143,7 +144,7 @@ End Function
 -  This exploit will run whenever you try to open your `.xlsm` / Excel file and will run even after   the Excel file is closed in the background 
 -  Until its Task is Ended in Task Manager or Victim Computer is Turned Off
 
-#### Creating a Malicious Excel File
+### Creating a Malicious Excel File
 
 Download the sample excel .vba file from : [Github](https://github.com/pruthuraut/Excel-RCE-with-Macros)
 
@@ -163,7 +164,7 @@ Only these two lines of code needs to be Edited , rest should be the same
 
 Now save the Excel File and Exit
 
-#### Set up a Listener : Netcat
+### Set up a Listener : Netcat
 
 On Another Terminal setup a Netcat Listener with this command below :-
 
@@ -171,7 +172,7 @@ On Another Terminal setup a Netcat Listener with this command below :-
 nc -lvnp < Port defined as in your powershell script >
 ```
 
-#### Execution
+### Execution
 
 Check The Following before Opening you File or it may get Flagged :
 
